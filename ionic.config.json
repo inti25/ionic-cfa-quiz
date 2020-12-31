@@ -1,6 +1,8 @@
 {
   "name": "ionic-cfa-quiz",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "4309fdcb"
 }
