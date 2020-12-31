@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "~@mdi/font/css/materialdesignicons.css";
+
+
+.defaultNavbar {
+  --background: linear-gradient(120deg, #00e4d0, #5983e8);
+  --color: white;
+}
+
+.defaultNavbarBtn {
+  --color: white;
+}
+
