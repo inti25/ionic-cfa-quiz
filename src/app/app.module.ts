@@ -8,11 +8,23 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {CommonModule} from '@angular/common';
+import {LstExamComponent} from './views/lst-exam/lst-exam.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LstExamComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    CommonModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
