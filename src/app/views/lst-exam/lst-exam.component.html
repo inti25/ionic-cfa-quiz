@@ -13,7 +13,7 @@
     <div class="content-wrapper">
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card" *ngFor="let topic of lstTopic">
-          <div class="card card-statistics">
+          <div class="card card-statistics" (click)="goToExams(topic.id)">
             <div class="card-body">
               <div class="clearfix">
                 <div class="float-left">

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {LstExamComponent} from './views/lst-exam/lst-exam.component';
+import {ExamsComponent} from './views/exams/exams.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'lst-exam', component: LstExamComponent},
+  { path: 'exams/:topicId', component: ExamsComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,87 @@
+<ion-toolbar class="defaultNavbar">
+  <ion-buttons slot="end">
+    <ion-button class="defaultNavbarBtn">
+      <ion-icon name="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Home</ion-title>
+</ion-toolbar>
+
+<ion-content class="container-fluid page-body-wrapper">
+  <!-- partial -->
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row" *ngIf="currentQuestion == null">
+
+        <ion-card class="cardQAStyle">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="cardQAStyle">
+          <ion-card-content>
+            <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="cardQAStyle">
+          <ion-card-content>
+            <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="cardQAStyle">
+          <ion-card-content>
+            <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+
+        <!--<button type="button" class="btn btn-inverse-success btn-fw">Start</button>-->
+        <button (click)="start()" type="button" class="btn btn-success btn-block font-weight-bold text-uppercase">Start</button>
+      </div>
+
+      <div class="row" *ngIf="currentQuestion != null">
+
+        <ion-card class="cardQAStyle">
+          <ion-card-header>
+            <ion-card-subtitle>
+              Question: {{currentIndex}}
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ng-katex-paragraph paragraph="{{currentQuestion.text}}"></ng-katex-paragraph>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="cardQAStyle"
+          *ngFor="let answer of currentQuestion.answers; let i = index"
+          [ngClass]="{'btn-outline-success' : answer.isCorrect && answerIndex >= 0 , 'btn-inverse-danger' : !answer.isCorrect && i == answerIndex}"
+          (click)="selectAnswer(i)">
+          <ion-card-content>
+            <ng-katex-paragraph paragraph="{{i+1 + '. ' + answer.text}}"></ng-katex-paragraph>
+            <blockquote class="blockquoteReason" *ngIf="answer.isCorrect && answerIndex >= 0" >
+              <ng-katex-paragraph paragraph="{{answer.correctReason}}"></ng-katex-paragraph>
+            </blockquote>
+          </ion-card-content>
+        </ion-card>
+
+        <!--<button type="button" class="btn btn-inverse-success btn-fw">Start</button>-->
+        <button (click)="start()" type="button" class="btn btn-success btn-block font-weight-bold text-uppercase">Start</button>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid clearfix">
+      </div>
+    </footer>
+  </div>
+  <!-- main-panel ends -->
+</ion-content>
+
+

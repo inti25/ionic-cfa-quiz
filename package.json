@@ -27,6 +27,7 @@
     "@mdi/font": "^5.8.55",
     "cordova-android": "^8.1.0",
     "firebase": "^8.2.1",
+    "ng-katex": "^2.0.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

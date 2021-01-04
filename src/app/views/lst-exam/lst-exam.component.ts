@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Topic} from '../../model/topic.model';
 import {FirestoreService} from '../../sevice/firestore.service';
 import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lst-exam',
@@ -10,7 +11,7 @@ import {Location} from '@angular/common';
 })
 export class LstExamComponent implements OnInit {
 
-  constructor(private firestoreService: FirestoreService, private localtion: Location) {
+  constructor(private firestoreService: FirestoreService, private localtion: Location, private router: Router) {
   }
 
   lstTopic: Topic[];
@@ -24,5 +25,9 @@ export class LstExamComponent implements OnInit {
 
   back(): void {
     this.localtion.back();
+  }
+
+  goToExams(topicId: string): void {
+    this.router.navigate(['/exams', topicId]);
   }
 }
